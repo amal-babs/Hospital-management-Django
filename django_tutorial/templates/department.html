@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Departments
+{% endblock  %}
+
+{% block content %} 
+<style>
+    .hover-zoom:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+    .hover-zoom {
+        cursor: pointer;
+    }
+    .department-card {
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .department-card:hover {
+        background-color:rgb(126, 240, 164); /* Change this to the color you prefer */
+        transform: scale(1.05);
+    }
+</style>
+
+<h1 class="text-center">Our Departments</h1>
+<hr>
+{% for d in dept %}
+<div class="mx-auto w-75 bg-secondary text-center text-white p-3 my-3 rounded shadow-lg hover-zoom department-card">
+    <h1>{{d.dep_name}}</h1>
+    <p>{{d.dep_description}}</p>
+</div>
+{% endfor %}
+{% endblock  %}
